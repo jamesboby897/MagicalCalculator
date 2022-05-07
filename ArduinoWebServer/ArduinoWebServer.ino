@@ -39,7 +39,7 @@ void loop() {
   if ((unsigned long)(now - previousMillis) >= interval) {
     int button = digitalRead(15);
     if(button==HIGH){
-    webSocket.broadcastTXT("String example");
+    webSocket.broadcastTXT("1234567890"); //enter your phone number here
     }
     else{
       webSocket.broadcastTXT("");
