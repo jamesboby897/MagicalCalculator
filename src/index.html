@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/dist/output.css" rel="stylesheet">
+	<title>Calculator</title>
+</head>
+<body class="bg-dgre">
+	<div class="container mx-auto w-72">
+		<div class="mx-auto w-72">
+		<div class="bg-gre rounded-b-3xl h-82 w-72">
+			<textarea id="screen" class="bg-gre text-wt text-8xl text-right h-72 py-28 w-full caret-crsr select-none" readonly></textarea>
+		</div>
+	</div>
+		<div class="container select-none mx-auto w-72">
+			<div class="mx-2">
+			<div class="h-5"></div>
+			<div class="h-20">
+				<button onclick="append('√')" class="text-wt text-4xl h-14 m-1 w-28 rounded-full transition ease-in delay-75 active:bg-pgre1 active:rounded-3xl duration-150">√</button>
+				<button onclick="append('π')" class="text-wt text-4xl h-14 m-1 w-28 rounded-full transition ease-in delay-75 active:bg-pgre1 active:rounded-3xl duration-150">π</button>
+				<button onclick="append('^')" class="text-wt text-4xl h-14 m-1 w-28 rounded-full transition ease-in delay-75 active:bg-pgre1 active:rounded-3xl duration-150">^</button>
+				<button onclick="append('!')" class="text-wt text-4xl h-14 m-1 w-28 rounded-full transition ease-in delay-75 active:bg-pgre1 active:rounded-3xl duration-150">!</button>
+			</div>
+			<div class="h-b">
+				<button onclick="ac()" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-grn transition ease-in delay-150 active:bg-pgrn active:rounded-3xl duration-150">AC</button>
+				<button onclick="br()" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-blu transition ease-in delay-150 active:bg-pblu active:rounded-3xl duration-150">( )</button>
+				<button onclick="append('%')" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-blu transition ease-in delay-150 active:bg-pblu active:rounded-3xl duration-150">%</button>
+				<button onclick="append('÷')" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-blu transition ease-in delay-150 active:bg-pblu active:rounded-3xl duration-150">÷</button>
+			</div>
+			<div class="h-b">
+				<button onclick="append('7')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">7</button>
+				<button onclick="append('8')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">8</button>
+				<button onclick="append('9')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">9</button>
+				<button onclick="append('×')" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-blu transition ease-in delay-150 active:bg-pblu active:rounded-3xl duration-150">×</button>
+			</div>
+			<div class="h-b">
+				<button onclick="append('4')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">4</button>
+				<button onclick="append('5')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">5</button>
+				<button onclick="append('6')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">6</button>
+				<button onclick="append('-')" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-blu transition ease-in delay-150 active:bg-pblu active:rounded-3xl duration-150">-</button>
+			</div>
+			<div class="h-b">
+				<button onclick="append('1')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">1</button>
+				<button onclick="append('2')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">2</button>
+				<button onclick="append('3')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">3</button>
+				<button onclick="append('+')" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-blu transition ease-in delay-150 active:bg-pblu active:rounded-3xl duration-150">+</button>
+			</div>
+			<div class="h-b">
+				<button onclick="append('0')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">0</button>
+				<button onclick="append('.')" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">.</button>
+				<button onclick="del()" class="text-wt text-5xl h-28 m-1 w-28 rounded-full bg-mgre transition ease-in delay-150 active:bg-pgre2 active:rounded-3xl duration-150">⌫</button>
+				<button onclick="eq()" class="text-blk text-5xl h-28 m-1 w-28 rounded-full bg-lblu transition ease-in delay-150 active:bg-plblu active:rounded-3xl duration-150">=</button>
+			</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var flag = false;
+		var Socket;
+		function init() {
+    	Socket = new WebSocket('ws://' + window.location.hostname + ':81/');
+    		Socket.onmessage = function(event) {
+      		processCommand(event);
+    		};
+  		}
+		function processCommand(event) {
+			console.log(event.length);
+			  if(event.length>5){
+    			document.getElementById('screen').innerHTML = event.data;
+			  }
+  		}
+		function append(num){
+			var v = document.getElementById('screen').innerHTML;
+			document.getElementById('screen').innerHTML = v + num;
+		}
+		function del(){
+			var v = document.getElementById('screen').innerHTML;
+			document.getElementById('screen').innerHTML = document.getElementById('screen').innerHTML.slice(0, v.length - 1);
+		}
+		function ac(){document.getElementById('screen').innerHTML = '';flag=false}
+		function br(){
+			if(flag == false){
+				append('(');
+				flag = true;
+			}else{
+				append(')');
+				flag = false;
+			}
+		}
+		function precisionRoundMod(number, precision) {
+  			var factor = Math.pow(10, precision);
+  			var n = precision < 0 ? number : 0.01 / factor + number;
+  			return Math.round( n * factor) / factor;
+			}
+		function eq(){
+			var v = document.getElementById('screen').value;
+			v = v.replace(/×/g,'*');
+			v = v.replace(/÷/g,'/');
+			v = v.replace(/π/g,'3.14159265');
+			if(v){
+				v=eval(v);
+				v = precisionRoundMod(parseFloat(v),10);
+				document.getElementById('screen').innerHTML = v;
+			}else{
+				document.getElementById('screen').innerHTML = "Format error";
+			}
+		}
+		window.onload = function(event) {
+    		init();
+  		}
+	</script>
+</body>
+</html>
